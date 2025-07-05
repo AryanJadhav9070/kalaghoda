@@ -3,54 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kala Ghoda Café | Artisanal Coffee & Café in Mumbai</title>
-    <meta name="description" content="Kala Ghoda Café in Mumbai offers artisanal coffee, fresh baked goods, and a cozy artistic atmosphere in the heart of Fort district.">
+    <title>Kala Ghoda Café | Artisanal Coffee & Creative Space in Mumbai</title>
+    <meta name="description" content="Mumbai's most innovative coffee experience - specialty brews, artisan pastries, and a vibrant creative hub in the heart of Kala Ghoda">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        primary: '#6F4E37', // Coffee brown
-                        secondary: '#E3D5C5', // Cream
-                        accent: '#C4A484', // Latte
-                        dark: '#3E2723', // Dark coffee
+                        primary: '#5C3D2E', // Rich coffee brown
+                        secondary: '#E6D5C3', // Warm cream
+                        accent: '#B85C38', // Rustic accent
+                        dark: '#2D2424', // Deep charcoal
+                        light: '#F0ECE3' // Soft ivory
                     },
                     fontFamily: {
-                        sans: ['"Open Sans"', 'sans-serif'],
+                        sans: ['Montserrat', 'sans-serif'],
                         display: ['"Playfair Display"', 'serif'],
                     },
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
-                        'pulse-slow': 'pulse 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'fade-in': 'fadeIn 1.5s ease-in',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        }
                     }
                 }
             }
         }
     </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
-        
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-        
         .hero-gradient {
-            background: linear-gradient(rgba(62, 39, 35, 0.7), rgba(62, 39, 35, 0.7)), 
-                        url('https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80');
+            background: linear-gradient(135deg, rgba(45, 36, 36, 0.85) 0%, rgba(92, 61, 46, 0.85) 100%), 
+                        url('dc41890179a734cb1cbb2a2c32c5c2b5.avif');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
         
-        .menu-item:hover .menu-item-overlay {
-            opacity: 1;
+        .menu-card {
+            background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .menu-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .hover-zoom {
+            transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+        
+        .hover-zoom:hover {
+            transform: scale(1.05);
+        }
+        
+        .btn-glow {
+            box-shadow: 0 4px 15px rgba(184, 92, 56, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-glow:hover {
+            box-shadow: 0 8px 25px rgba(184, 92, 56, 0.5);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #B85C38;
+            transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .text-stroke {
+            -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+            color: transparent;
         }
         
         .parallax {
@@ -81,69 +138,142 @@
             opacity: 0;
         }
         
-        .hover-zoom {
-            transition: transform 0.5s ease;
-        }
-        
-        .hover-zoom:hover {
-            transform: scale(1.05);
-        }
-        
-        .btn-glow:hover {
-            box-shadow: 0 0 15px rgba(196, 164, 132, 0.8);
-        }
-        
-        .nav-link {
-            position: relative;
-        }
-        
-        .nav-link:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: #C4A484;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover:after {
-            width: 100%;
-        }
-        
-        .floating {
-            animation: float 6s ease-in-out infinite;
+        .rotate-3d {
+            transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
         }
         
         .rotate-3d:hover {
-            transform: rotateY(15deg) rotateX(10deg);
-            transition: transform 0.5s ease;
+            transform: rotateY(15deg) rotateX(5deg);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #E6D5C3 0%, #B85C38 50%, #5C3D2E 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        .grid-masonry {
+            display: grid;
+            grid-gap: 1.5rem;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-auto-rows: 200px;
+        }
+        
+        @media (min-width: 768px) {
+            .grid-masonry {
+                grid-auto-rows: 300px;
+            }
+        }
+        
+        .grid-item {
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+        
+        .grid-item:nth-child(3n) {
+            grid-row: span 2;
+        }
+        
+        .grid-item:nth-child(4n) {
+            grid-column: span 2;
+        }
+        
+        .grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        
+        .grid-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(135deg, rgba(92, 61, 46, 0.8) 0%, rgba(45, 36, 36, 0.9) 100%);
+            border-left: 4px solid #B85C38;
+        }
+        
+        .input-field {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .input-field:focus {
+            background: rgba(255,255,255,0.1);
+            border-color: #B85C38;
+            box-shadow: 0 0 0 3px rgba(184, 92, 56, 0.2);
+        }
+        
+        .footer-link {
+            position: relative;
+        }
+        
+        .footer-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: #E6D5C3;
+            transition: width 0.4s ease;
+        }
+        
+        .footer-link:hover:after {
+            width: 100%;
+        }
+        
+        /* Coffee steam animations */
+        @keyframes steam-one {
+            0% { transform: translateY(0) translateX(0) scale(0.25); opacity: 0.2; }
+            100% { transform: translateY(-200px) translateX(-20px) scale(1); opacity: 0; }
+        }
+        
+        @keyframes steam-two {
+            0% { transform: translateY(0) translateX(0) scale(0.25); opacity: 0.2; }
+            100% { transform: translateY(-200px) translateX(0) scale(1); opacity: 0; }
+        }
+        
+        @keyframes steam-three {
+            0% { transform: translateY(0) translateX(0) scale(0.25); opacity: 0.2; }
+            100% { transform: translateY(-200px) translateX(20px) scale(1); opacity: 0; }
         }
     </style>
 </head>
-<body class="font-sans text-dark bg-secondary">
+<body class="font-sans text-dark bg-light antialiased">
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50" data-aos="fade-down">
+    <nav class="fixed w-full bg-dark/90 backdrop-blur-md shadow-lg z-50" data-aos="fade-down">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <div class="flex-shrink-0 flex items-center">
-                    <span class="text-2xl font-display font-bold text-primary hover:text-accent transition duration-300">Kala Ghoda Café</span>
+                    <span class="text-2xl font-display font-bold text-secondary hover:text-accent transition duration-500">Kala Ghoda Café</span>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-center space-x-8">
-                        <a href="#home" class="nav-link text-primary hover:text-accent px-3 py-2 font-medium">Home</a>
-                        <a href="#menu" class="nav-link text-primary hover:text-accent px-3 py-2 font-medium">Menu</a>
-                        <a href="#about" class="nav-link text-primary hover:text-accent px-3 py-2 font-medium">About</a>
-                        <a href="#gallery" class="nav-link text-primary hover:text-accent px-3 py-2 font-medium">Gallery</a>
-                        <a href="#contact" class="nav-link text-primary hover:text-accent px-3 py-2 font-medium">Contact</a>
-                        <a href="https://www.zomato.com/mumbai/kala-ghoda-cafe-fort/order" target="_blank" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-dark transition duration-300 font-medium btn-glow">
+                        <a href="#home" class="nav-link text-secondary hover:text-white px-3 py-2 font-medium">Home</a>
+                        <a href="#menu" class="nav-link text-secondary hover:text-white px-3 py-2 font-medium">Menu</a>
+                        <a href="#about" class="nav-link text-secondary hover:text-white px-3 py-2 font-medium">About</a>
+                        <a href="#gallery" class="nav-link text-secondary hover:text-white px-3 py-2 font-medium">Gallery</a>
+                        <a href="#contact" class="nav-link text-secondary hover:text-white px-3 py-2 font-medium">Contact</a>
+                        <a href="https://www.zomato.com/mumbai/kala-ghoda-cafe-fort/order" target="_blank" class="bg-accent text-white px-6 py-2 rounded-full hover:bg-primary transition duration-500 font-medium btn-glow transform hover:-translate-y-1">
                             Order Online
                         </a>
                     </div>
                 </div>
                 <div class="md:hidden">
-                    <button class="text-primary focus:outline-none" id="mobile-menu-button">
+                    <button class="text-secondary focus:outline-none" id="mobile-menu-button">
                         <i class="fas fa-bars text-2xl"></i>
                     </button>
                 </div>
@@ -152,31 +282,22 @@
     </nav>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden fixed inset-0 bg-white z-40 pt-20">
+    <div id="mobile-menu" class="hidden fixed inset-0 bg-dark/95 backdrop-blur-lg z-40 pt-20">
         <div class="flex flex-col items-center space-y-8 py-10">
-            <a href="#home" class="text-primary text-xl font-medium">Home</a>
-            <a href="#menu" class="text-primary text-xl font-medium">Menu</a>
-            <a href="#about" class="text-primary text-xl font-medium">About</a>
-            <a href="#gallery" class="text-primary text-xl font-medium">Gallery</a>
-            <a href="#contact" class="text-primary text-xl font-medium">Contact</a>
-            <a href="https://www.zomato.com/mumbai/kala-ghoda-cafe-fort/order" target="_blank" class="bg-primary text-white px-6 py-2 rounded-full text-lg font-medium">
+            <a href="#home" class="text-secondary text-xl font-medium hover:text-accent transition duration-300">Home</a>
+            <a href="#menu" class="text-secondary text-xl font-medium hover:text-accent transition duration-300">Menu</a>
+            <a href="#about" class="text-secondary text-xl font-medium hover:text-accent transition duration-300">About</a>
+            <a href="#gallery" class="text-secondary text-xl font-medium hover:text-accent transition duration-300">Gallery</a>
+            <a href="#contact" class="text-secondary text-xl font-medium hover:text-accent transition duration-300">Contact</a>
+            <a href="https://www.zomato.com/mumbai/kala-ghoda-cafe-fort/order" target="_blank" class="bg-accent text-white px-6 py-3 rounded-full text-lg font-medium btn-glow">
                 Order Online
             </a>
         </div>
     </div>
 
     <!-- Hero Section -->
+    <!-- Hero Section -->
     <section id="home" class="hero-gradient min-h-screen flex items-center justify-center text-white pt-20 relative overflow-hidden">
-        <!-- Floating coffee beans decoration -->
-        <div class="absolute top-20 left-10 w-16 h-16 opacity-70 floating">
-            <img src="https://cdn-icons-png.flaticon.com/512/924/924514.png" alt="Coffee bean" class="w-full h-full object-contain">
-        </div>
-        <div class="absolute bottom-1/4 right-20 w-12 h-12 opacity-60 floating" style="animation-delay: 1s;">
-            <img src="https://cdn-icons-png.flaticon.com/512/924/924514.png" alt="Coffee bean" class="w-full h-full object-contain">
-        </div>
-        <div class="absolute top-1/3 right-1/4 w-10 h-10 opacity-50 floating" style="animation-delay: 2s;">
-            <img src="https://cdn-icons-png.flaticon.com/512/924/924514.png" alt="Coffee bean" class="w-full h-full object-contain">
-        </div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
             <div class="text-center" data-aos="fade-up" data-aos-delay="300">
@@ -206,155 +327,198 @@
     </section>
 
     <!-- Featured Section -->
-    <section id="featured" class="py-20 bg-white">
+    <section id="featured" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl font-display font-bold text-primary mb-4">Why Kala Ghoda Café?</h2>
-                <div class="w-24 h-1 bg-accent mx-auto"></div>
+            <div class="text-center mb-20" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-primary mb-6">The Kala Ghoda Experience</h2>
+                <div class="w-32 h-1 bg-accent mx-auto mb-8"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto text-lg">More than just a café - a creative hub where coffee, culture and community converge</p>
             </div>
             
             <div class="grid md:grid-cols-3 gap-12">
-                <div class="text-center hover-zoom rotate-3d" data-aos="fade-up" data-aos-delay="100">
-                    <div class="bg-secondary rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6 transition-transform duration-500 hover:rotate-12">
-                        <i class="fas fa-coffee text-3xl text-primary"></i>
+                <div class="text-center rotate-3d" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative mb-8 mx-auto w-48 h-48">
+                        <div class="absolute inset-0 bg-secondary rounded-full opacity-20 animate-pulse-slow"></div>
+                        <div class="absolute inset-4 bg-accent/10 rounded-full flex items-center justify-center transition-transform duration-500 hover:rotate-12">
+                            <i class="fas fa-coffee text-5xl text-accent"></i>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-display font-semibold mb-3">Premium Coffee</h3>
-                    <p class="text-gray-600">Single-origin beans roasted to perfection by our expert baristas.</p>
+                    <h3 class="text-2xl font-display font-semibold mb-4">Artisan Coffee</h3>
+                    <p class="text-gray-600">Single-origin beans, precision brewing methods, and passionate baristas creating Mumbai's best coffee experience.</p>
                 </div>
                 
-                <div class="text-center hover-zoom rotate-3d" data-aos="fade-up" data-aos-delay="200">
-                    <div class="bg-secondary rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6 transition-transform duration-500 hover:-rotate-12">
-                        <i class="fas fa-bread-slice text-3xl text-primary"></i>
+                <div class="text-center rotate-3d" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative mb-8 mx-auto w-48 h-48">
+                        <div class="absolute inset-0 bg-secondary rounded-full opacity-20 animate-pulse-slow" style="animation-delay: 0.5s;"></div>
+                        <div class="absolute inset-4 bg-accent/10 rounded-full flex items-center justify-center transition-transform duration-500 hover:-rotate-12">
+                            <i class="fas fa-utensils text-5xl text-accent"></i>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-display font-semibold mb-3">Fresh Baked Goods</h3>
-                    <p class="text-gray-600">Daily baked pastries, breads and desserts made from scratch.</p>
+                    <h3 class="text-2xl font-display font-semibold mb-4">Seasonal Eats</h3>
+                    <p class="text-gray-600">Locally-sourced ingredients transformed into beautiful, nourishing dishes that change with the seasons.</p>
                 </div>
                 
-                <div class="text-center hover-zoom rotate-3d" data-aos="fade-up" data-aos-delay="300">
-                    <div class="bg-secondary rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6 transition-transform duration-500 hover:rotate-12">
-                        <i class="fas fa-palette text-3xl text-primary"></i>
+                <div class="text-center rotate-3d" data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative mb-8 mx-auto w-48 h-48">
+                        <div class="absolute inset-0 bg-secondary rounded-full opacity-20 animate-pulse-slow" style="animation-delay: 1s;"></div>
+                        <div class="absolute inset-4 bg-accent/10 rounded-full flex items-center justify-center transition-transform duration-500 hover:rotate-12">
+                            <i class="fas fa-palette text-5xl text-accent"></i>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-display font-semibold mb-3">Artistic Ambiance</h3>
-                    <p class="text-gray-600">A creative space that celebrates Mumbai's vibrant art scene.</p>
+                    <h3 class="text-2xl font-display font-semibold mb-4">Creative Space</h3>
+                    <p class="text-gray-600">A vibrant hub hosting art exhibitions, live music, and cultural events that celebrate Mumbai's creative spirit.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Menu Section -->
-    <section id="menu" class="py-20 bg-secondary relative overflow-hidden">
+    <section id="menu" class="py-24 bg-dark text-white relative overflow-hidden">
         <!-- Floating coffee cup decoration -->
         <div class="absolute -top-20 -right-20 w-64 h-64 opacity-10">
             <img src="https://cdn-icons-png.flaticon.com/512/2936/2936886.png" alt="Coffee cup" class="w-full h-full object-contain">
         </div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl font-display font-bold text-primary mb-4">Our Menu</h2>
-                <div class="w-24 h-1 bg-accent mx-auto"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto mt-4">Seasonal offerings crafted with locally-sourced ingredients</p>
+            <div class="text-center mb-20" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-display font-bold mb-6">Our Menu</h2>
+                <div class="w-32 h-1 bg-accent mx-auto mb-8"></div>
+                <p class="text-secondary max-w-3xl mx-auto text-lg">Thoughtfully crafted with seasonal ingredients and served with care</p>
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Coffee -->
-                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 hover-zoom" data-aos="fade-up" data-aos-delay="100">
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80" 
-                             alt="Coffee" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                        <div class="absolute inset-0 bg-primary/20 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
-                            <span class="text-white font-display text-xl bg-primary/90 px-4 py-2 rounded">Coffee</span>
+                <div class="menu-card rounded-xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="coffeeimg.avif" 
+                             alt="Coffee" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent flex items-end p-6">
+                            <h3 class="font-display text-3xl font-bold">Coffee</h3>
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="font-display text-xl font-semibold mb-3">Coffee Selection</h3>
-                        <ul class="space-y-2">
-                            <li class="flex justify-between hover:bg-secondary/50 px-2 py-1 rounded transition">
-                                <span>Espresso</span>
-                                <span class="font-medium">₹120</span>
+                        <ul class="space-y-4">
+                            <li class="flex justify-between items-center border-b border-white/10 pb-3">
+                                <div>
+                                    <h4 class="font-medium">Ethiopian Pour Over</h4>
+                                    <p class="text-secondary text-sm">Floral, citrus notes</p>
+                                </div>
+                                <span class="font-display text-accent">₹180</span>
                             </li>
-                            <li class="flex justify-between hover:bg-secondary/50 px-2 py-1 rounded transition">
-                                <span>Cappuccino</span>
-                                <span class="font-medium">₹150</span>
+                            <li class="flex justify-between items-center border-b border-white/10 pb-3">
+                                <div>
+                                    <h4 class="font-medium">Signature Cappuccino</h4>
+                                    <p class="text-secondary text-sm">House espresso blend</p>
+                                </div>
+                                <span class="font-display text-accent">₹160</span>
                             </li>
-                            <li class="flex justify-between hover:bg-secondary/50 px-2 py-1 rounded transition">
-                                <span>Cold Brew</span>
-                                <span class="font-medium">₹180</span>
+                            <li class="flex justify-between items-center border-b border-white/10 pb-3">
+                                <div>
+                                    <h4 class="font-medium">Cold Brew Tonic</h4>
+                                    <p class="text-secondary text-sm">With orange zest</p>
+                                </div>
+                                <span class="font-display text-accent">₹200</span>
                             </li>
-                            <li class="flex justify-between hover:bg-secondary/50 px-2 py-1 rounded transition">
-                                <span>Filter Coffee</span>
-                                <span class="font-medium">₹110</span>
+                            <li class="flex justify-between items-center">
+                                <div>
+                                    <h4 class="font-medium">Masala Chai</h4>
+                                    <p class="text-secondary text-sm">Homemade spice blend</p>
+                                </div>
+                                <span class="font-display text-accent">₹120</span>
                             </li>
                         </ul>
                     </div>
                 </div>
                 
                 <!-- Food -->
-                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 hover-zoom" data-aos="fade-up" data-aos-delay="200">
-                    <div class="relative h-48 overflow-hidden">
+                <div class="menu-card rounded-xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative h-64 overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80" 
-                             alt="Food" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                        <div class="absolute inset-0 bg-primary/20 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
-                            <span class="text-white font-display text-xl bg-primary/90 px-4 py-2 rounded">Food</span>
+                             alt="Food" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent flex items-end p-6">
+                            <h3 class="font-display text-3xl font-bold">Brunch</h3>
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="font-display text-xl font-semibold mb-3">Food Menu</h3>
-                        <ul class="space-y-2">
-                            <li class="flex justify-between hover:bg-secondary/50 px-2 py-1 rounded transition">
-                                <span>Avocado Toast</span>
-                                <span class="font-medium">₹220</span>
+                        <ul class="space-y-4">
+                            <li class="flex justify-between items-center border-b border-white/10 pb-3">
+                                <div>
+                                    <h4 class="font-medium">Avocado & Feta Toast</h4>
+                                    <p class="text-secondary text-sm">Sourdough, chili flakes</p>
+                                </div>
+                                <span class="font-display text-accent">₹240</span>
                             </li>
-                            <li class="flex justify-between hover:bg-secondary/50 px-2 py-1 rounded transition">
-                                <span>Quiche Lorraine</span>
-                                <span class="font-medium">₹250</span>
+                            <li class="flex justify-between items-center border-b border-white/10 pb-3">
+                                <div>
+                                    <h4 class="font-medium">Shakshuka</h4>
+                                    <p class="text-secondary text-sm">Eggs in spiced tomato sauce</p>
+                                </div>
+                                <span class="font-display text-accent">₹280</span>
                             </li>
-                            <li class="flex justify-between hover:bg-secondary/50 px-2 py-1 rounded transition">
-                                <span>Croissant Sandwich</span>
-                                <span class="font-medium">₹180</span>
+                            <li class="flex justify-between items-center border-b border-white/10 pb-3">
+                                <div>
+                                    <h4 class="font-medium">Poha Bowl</h4>
+                                    <p class="text-secondary text-sm">With coconut & peanuts</p>
+                                </div>
+                                <span class="font-display text-accent">₹200</span>
                             </li>
-                            <li class="flex justify-between hover:bg-secondary/50 px-2 py-1 rounded transition">
-                                <span>Acai Bowl</span>
-                                <span class="font-medium">₹280</span>
+                            <li class="flex justify-between items-center">
+                                <div>
+                                    <h4 class="font-medium">Acai Smoothie Bowl</h4>
+                                    <p class="text-secondary text-sm">Seasonal fruits & granola</p>
+                                </div>
+                                <span class="font-display text-accent">₹300</span>
                             </li>
                         </ul>
                     </div>
                 </div>
                 
                 <!-- Desserts -->
-                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 hover-zoom" data-aos="fade-up" data-aos-delay="300">
-                    <div class="relative h-48 overflow-hidden">
+                <div class="menu-card rounded-xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative h-64 overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80" 
-                             alt="Desserts" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                        <div class="absolute inset-0 bg-primary/20 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
-                            <span class="text-white font-display text-xl bg-primary/90 px-4 py-2 rounded">Desserts</span>
+                             alt="Desserts" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent flex items-end p-6">
+                            <h3 class="font-display text-3xl font-bold">Sweet Things</h3>
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="font-display text-xl font-semibold mb-3">Sweet Treats</h3>
-                        <ul class="space-y-2">
-                            <li class="flex justify-between hover:bg-secondary/50 px-2 py-1 rounded transition">
-                                <span>Tiramisu</span>
-                                <span class="font-medium">₹200</span>
+                        <ul class="space-y-4">
+                            <li class="flex justify-between items-center border-b border-white/10 pb-3">
+                                <div>
+                                    <h4 class="font-medium">Cardamom Bun</h4>
+                                    <p class="text-secondary text-sm">Freshly baked daily</p>
+                                </div>
+                                <span class="font-display text-accent">₹150</span>
                             </li>
-                            <li class="flex justify-between hover:bg-secondary/50 px-2 py-1 rounded transition">
-                                <span>Chocolate Croissant</span>
-                                <span class="font-medium">₹150</span>
+                            <li class="flex justify-between items-center border-b border-white/10 pb-3">
+                                <div>
+                                    <h4 class="font-medium">Chocolate Tart</h4>
+                                    <p class="text-secondary text-sm">Sea salt caramel</p>
+                                </div>
+                                <span class="font-display text-accent">₹220</span>
                             </li>
-                            <li class="flex justify-between hover:bg-secondary/50 px-2 py-1 rounded transition">
-                                <span>Banana Bread</span>
-                                <span class="font-medium">₹120</span>
+                            <li class="flex justify-between items-center border-b border-white/10 pb-3">
+                                <div>
+                                    <h4 class="font-medium">Pistachio Croissant</h4>
+                                    <p class="text-secondary text-sm">House-made frangipane</p>
+                                </div>
+                                <span class="font-display text-accent">₹180</span>
                             </li>
-                            <li class="flex justify-between hover:bg-secondary/50 px-2 py-1 rounded transition">
-                                <span>Seasonal Fruit Tart</span>
-                                <span class="font-medium">₹180</span>
+                            <li class="flex justify-between items-center">
+                                <div>
+                                    <h4 class="font-medium">Seasonal Fruit Galette</h4>
+                                    <p class="text-secondary text-sm">With vanilla cream</p>
+                                </div>
+                                <span class="font-display text-accent">₹250</span>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
             
-            <div class="text-center mt-12" data-aos="fade-up">
-                <a href="https://www.zomato.com/mumbai/kala-ghoda-cafe-fort/order" target="_blank" class="inline-block bg-primary hover:bg-dark text-white px-8 py-3 rounded-full text-lg font-medium transition duration-300 btn-glow transform hover:-translate-y-1">
+            <div class="text-center mt-16" data-aos="fade-up">
+                <a href="https://www.zomato.com/mumbai/kala-ghoda-cafe-fort/order" target="_blank" class="inline-block bg-accent hover:bg-primary text-white px-8 py-4 rounded-full text-lg font-medium transition duration-500 btn-glow transform hover:-translate-y-1">
                     View Full Menu & Order Online
                 </a>
             </div>
@@ -362,7 +526,7 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-white relative overflow-hidden">
+    <section id="about" class="py-24 bg-white relative overflow-hidden">
         <!-- Floating coffee steam decoration -->
         <div class="absolute top-0 left-0 w-full h-full pointer-events-none">
             <div class="coffee-steam">
@@ -373,38 +537,42 @@
         </div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
                 <div data-aos="fade-right">
-                    <h2 class="text-4xl font-display font-bold text-primary mb-6">Our Story</h2>
-                    <div class="w-24 h-1 bg-accent mb-8"></div>
-                    <p class="text-gray-600 mb-6">
-                        Founded in 2012, Kala Ghoda Café quickly became a beloved institution in Mumbai's historic Fort district. What began as a small coffee shop has grown into a cultural hub where art, food, and community intersect.
+                    <h2 class="text-4xl md:text-5xl font-display font-bold text-primary mb-6">Our Story</h2>
+                    <div class="w-32 h-1 bg-accent mb-8"></div>
+                    <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+                        Born in 2012 from a love of good coffee and Mumbai's vibrant arts scene, Kala Ghoda Café has grown into a beloved institution. What began as a modest coffee shop is now a cultural landmark where creatives, professionals, and coffee lovers gather.
                     </p>
-                    <p class="text-gray-600 mb-6">
-                        Our philosophy is simple: source the best ingredients, prepare everything with care, and create a welcoming space for all. We partner with local farmers and artisans to bring you the freshest flavors Mumbai has to offer.
+                    <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+                        We're passionate about every detail - from sourcing beans directly from ethical farms to crafting pastries in-house each morning. Our space evolves with rotating art exhibitions, making each visit unique.
                     </p>
-                    <p class="text-gray-600 mb-8">
-                        The café's name pays homage to the iconic Kala Ghoda art district we call home, and we continue this tradition by showcasing rotating exhibitions from local artists.
+                    <p class="text-gray-600 mb-8 text-lg leading-relaxed">
+                        The name honors our neighborhood's iconic black horse statue ("Kala Ghoda"), symbolizing our commitment to being a creative hub in Mumbai's historic art district.
                     </p>
                     <div class="flex flex-wrap gap-4">
-                        <div class="flex items-center bg-secondary/50 px-4 py-2 rounded-lg">
-                            <i class="fas fa-clock text-accent mr-2"></i>
+                        <div class="flex items-center bg-secondary/30 px-6 py-3 rounded-full hover-zoom">
+                            <i class="fas fa-clock text-accent mr-3"></i>
                             <span class="font-medium">Mon-Sun: 8AM - 10PM</span>
                         </div>
-                        <div class="flex items-center bg-secondary/50 px-4 py-2 rounded-lg">
-                            <i class="fas fa-map-marker-alt text-accent mr-2"></i>
-                            <span class="font-medium">10, Ropewalk Lane, Kala Ghoda, Mumbai</span>
+                        <div class="flex items-center bg-secondary/30 px-6 py-3 rounded-full hover-zoom">
+                            <i class="fas fa-map-marker-alt text-accent mr-3"></i>
+                            <span class="font-medium">10, Ropewalk Lane, Kala Ghoda</span>
                         </div>
                     </div>
                 </div>
                 <div class="relative" data-aos="fade-left">
-                    <div class="aspect-w-4 aspect-h-3 rounded-lg overflow-hidden shadow-lg hover-zoom">
+                    <div class="aspect-w-4 aspect-h-3 rounded-2xl overflow-hidden shadow-2xl hover-zoom border-8 border-white">
                         <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80" 
                              alt="Cafe Interior" class="w-full h-full object-cover">
                     </div>
-                    <div class="absolute -bottom-6 -left-6 bg-accent p-4 rounded-lg shadow-lg hidden md:block animate-pulse-slow">
-                        <div class="text-white font-display text-xl font-bold">12+</div>
-                        <div class="text-white text-sm">Years Serving Mumbai</div>
+                    <div class="absolute -bottom-6 -left-6 bg-accent p-6 rounded-xl shadow-xl hidden md:block">
+                        <div class="text-white font-display text-3xl font-bold">12+</div>
+                        <div class="text-white">Years Serving Mumbai</div>
+                    </div>
+                    <div class="absolute -top-6 -right-6 bg-primary p-6 rounded-xl shadow-xl hidden md:block">
+                        <div class="text-white font-display text-3xl font-bold">20+</div>
+                        <div class="text-white">Coffee varieties</div>
                     </div>
                 </div>
             </div>
@@ -412,125 +580,126 @@
     </section>
 
     <!-- Gallery Section -->
-    <section id="gallery" class="py-20 bg-secondary">
+    <section id="gallery" class="py-24 bg-dark">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl font-display font-bold text-primary mb-4">Gallery</h2>
-                <div class="w-24 h-1 bg-accent mx-auto"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto mt-4">A glimpse into our café experience</p>
+            <div class="text-center mb-20" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-6">Gallery</h2>
+                <div class="w-32 h-1 bg-accent mx-auto mb-8"></div>
+                <p class="text-secondary max-w-3xl mx-auto text-lg">Moments from our café and community</p>
             </div>
             
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <div class="aspect-square overflow-hidden rounded-lg shadow-md hover:shadow-xl transition duration-300 hover-zoom" data-aos="zoom-in">
+            <div class="grid-masonry">
+                <div class="grid-item overflow-hidden rounded-xl" data-aos="zoom-in">
                     <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                         alt="Coffee preparation" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                         alt="Coffee preparation">
                 </div>
-                <div class="aspect-square overflow-hidden rounded-lg shadow-md hover:shadow-xl transition duration-300 hover-zoom" data-aos="zoom-in" data-aos-delay="100">
+                <div class="grid-item overflow-hidden rounded-xl" data-aos="zoom-in" data-aos-delay="100">
                     <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                         alt="Cafe interior" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                         alt="Cafe interior">
                 </div>
-                <div class="aspect-square overflow-hidden rounded-lg shadow-md hover:shadow-xl transition duration-300 hover-zoom" data-aos="zoom-in" data-aos-delay="200">
+                <div class="grid-item overflow-hidden rounded-xl" data-aos="zoom-in" data-aos-delay="200">
                     <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                         alt="Food presentation" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                         alt="Food presentation">
                 </div>
-                <div class="aspect-square overflow-hidden rounded-lg shadow-md hover:shadow-xl transition duration-300 hover-zoom" data-aos="zoom-in" data-aos-delay="300">
+                <div class="grid-item overflow-hidden rounded-xl" data-aos="zoom-in" data-aos-delay="300">
                     <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                         alt="Pastries" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                         alt="Pastries">
                 </div>
-                <div class="aspect-square overflow-hidden rounded-lg shadow-md hover:shadow-xl transition duration-300 hover-zoom" data-aos="zoom-in">
+                <div class="grid-item overflow-hidden rounded-xl" data-aos="zoom-in">
                     <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                         alt="Coffee cup" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                         alt="Coffee cup">
                 </div>
-                <div class="aspect-square overflow-hidden rounded-lg shadow-md hover:shadow-xl transition duration-300 hover-zoom" data-aos="zoom-in" data-aos-delay="100">
+                <div class="grid-item overflow-hidden rounded-xl" data-aos="zoom-in" data-aos-delay="100">
                     <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                         alt="Breakfast" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                         alt="Breakfast">
                 </div>
-                <div class="aspect-square overflow-hidden rounded-lg shadow-md hover:shadow-xl transition duration-300 hover-zoom" data-aos="zoom-in" data-aos-delay="200">
+                <div class="grid-item overflow-hidden rounded-xl" data-aos="zoom-in" data-aos-delay="200">
                     <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                         alt="Healthy food" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                         alt="Healthy food">
                 </div>
-                <div class="aspect-square overflow-hidden rounded-lg shadow-md hover:shadow-xl transition duration-300 hover-zoom" data-aos="zoom-in" data-aos-delay="300">
+                <div class="grid-item overflow-hidden rounded-xl" data-aos="zoom-in" data-aos-delay="300">
                     <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                         alt="Cafe atmosphere" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                         alt="Cafe atmosphere">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials -->
-    <section class="py-20 bg-primary text-white parallax" style="background-image: url('https://images.unsplash.com/photo-1498804103079-a6351b050096?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80');">
+    <section class="py-24 text-white parallax" style="background-image: url('https://images.unsplash.com/photo-1498804103079-a6351b050096?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1800&q=80');">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl font-display font-bold mb-4">What People Say</h2>
-                <div class="w-24 h-1 bg-accent mx-auto"></div>
+            <div class="text-center mb-20" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-display font-bold mb-6">What People Say</h2>
+                <div class="w-32 h-1 bg-accent mx-auto mb-8"></div>
+                <p class="text-secondary max-w-3xl mx-auto text-lg">Hear from our community of coffee lovers and creatives</p>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-lg hover-zoom" data-aos="fade-up" data-aos-delay="100">
+                <div class="testimonial-card p-8 rounded-xl hover-zoom" data-aos="fade-up" data-aos-delay="100">
                     <div class="flex items-center mb-4">
-                        <div class="text-yellow-400 mr-2">
+                        <div class="text-yellow-400 mr-3">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-                        <span class="text-sm">Zomato</span>
+                        <span class="text-sm text-secondary">Zomato</span>
                     </div>
-                    <p class="italic mb-6">"The best coffee in South Mumbai! Love the artistic vibe and the avocado toast is to die for."</p>
+                    <p class="italic mb-6 text-lg leading-relaxed">"The attention to detail in every cup is remarkable. My favorite place to start the day with their incredible pour over and cardamom bun."</p>
                     <div class="flex items-center">
-                        <div class="w-10 h-10 rounded-full bg-accent mr-3 overflow-hidden">
+                        <div class="w-12 h-12 rounded-full bg-accent mr-4 overflow-hidden">
                             <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Reviewer" class="w-full h-full object-cover">
                         </div>
                         <div>
                             <div class="font-medium">Priya M.</div>
-                            <div class="text-sm text-secondary">Regular Customer</div>
+                            <div class="text-sm text-secondary">Regular since 2015</div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-lg hover-zoom" data-aos="fade-up" data-aos-delay="200">
+                <div class="testimonial-card p-8 rounded-xl hover-zoom" data-aos="fade-up" data-aos-delay="200">
                     <div class="flex items-center mb-4">
-                        <div class="text-yellow-400 mr-2">
+                        <div class="text-yellow-400 mr-3">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-                        <span class="text-sm">Google</span>
+                        <span class="text-sm text-secondary">Google</span>
                     </div>
-                    <p class="italic mb-6">"My favorite place to work remotely. Great WiFi, amazing coffee, and the staff is so welcoming."</p>
+                    <p class="italic mb-6 text-lg leading-relaxed">"The perfect blend of great coffee and creative energy. I've had some of my best ideas sitting at their window seat with a cold brew tonic."</p>
                     <div class="flex items-center">
-                        <div class="w-10 h-10 rounded-full bg-accent mr-3 overflow-hidden">
+                        <div class="w-12 h-12 rounded-full bg-accent mr-4 overflow-hidden">
                             <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Reviewer" class="w-full h-full object-cover">
                         </div>
                         <div>
                             <div class="font-medium">Rahul S.</div>
-                            <div class="text-sm text-secondary">Digital Nomad</div>
+                            <div class="text-sm text-secondary">Design Director</div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-lg hover-zoom" data-aos="fade-up" data-aos-delay="300">
+                <div class="testimonial-card p-8 rounded-xl hover-zoom" data-aos="fade-up" data-aos-delay="300">
                     <div class="flex items-center mb-4">
-                        <div class="text-yellow-400 mr-2">
+                        <div class="text-yellow-400 mr-3">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star-half-alt"></i>
                         </div>
-                        <span class="text-sm">Instagram</span>
+                        <span class="text-sm text-secondary">Instagram</span>
                     </div>
-                    <p class="italic mb-6">"The perfect spot for brunch with friends. The banana bread French toast is incredible!"</p>
+                    <p class="italic mb-6 text-lg leading-relaxed">"As a food blogger, I'm constantly impressed by their seasonal menu innovations. The avocado toast with chili oil is life-changing!"</p>
                     <div class="flex items-center">
-                        <div class="w-10 h-10 rounded-full bg-accent mr-3 overflow-hidden">
+                        <div class="w-12 h-12 rounded-full bg-accent mr-4 overflow-hidden">
                             <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Reviewer" class="w-full h-full object-cover">
                         </div>
                         <div>
                             <div class="font-medium">Neha P.</div>
-                            <div class="text-sm text-secondary">Food Blogger</div>
+                            <div class="text-sm text-secondary">@mumbaifooddiaries</div>
                         </div>
                     </div>
                 </div>
@@ -539,59 +708,52 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white">
+    <section id="contact" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 gap-12">
+            <div class="grid md:grid-cols-2 gap-16">
                 <div data-aos="fade-right">
-                    <h2 class="text-4xl font-display font-bold text-primary mb-6">Visit Us</h2>
-                    <div class="w-24 h-1 bg-accent mb-8"></div>
+                    <h2 class="text-4xl md:text-5xl font-display font-bold text-primary mb-6">Visit Us</h2>
+                    <div class="w-32 h-1 bg-accent mb-8"></div>
                     
                     <div class="space-y-6">
-                        <div class="flex items-start bg-secondary/30 p-4 rounded-lg hover-zoom">
-                            <div class="text-accent mr-4 mt-1">
-                                <i class="fas fa-map-marker-alt text-xl"></i>
+                        <div class="flex items-start bg-light p-6 rounded-xl hover-zoom">
+                            <div class="text-accent mr-5 mt-1 text-2xl">
+                                <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div>
-                                <h3 class="font-display font-semibold text-lg mb-1">Location</h3>
+                                <h3 class="font-display font-semibold text-xl mb-2">Location</h3>
                                 <p class="text-gray-600">10, Ropewalk Lane, Kala Ghoda, Fort, Mumbai, Maharashtra 400001</p>
+                                <a href="#" class="inline-block mt-3 text-accent font-medium hover:underline">Get Directions</a>
                             </div>
                         </div>
                         
-                        <div class="flex items-start bg-secondary/30 p-4 rounded-lg hover-zoom">
-                            <div class="text-accent mr-4 mt-1">
-                                <i class="fas fa-clock text-xl"></i>
+                        <div class="flex items-start bg-light p-6 rounded-xl hover-zoom">
+                            <div class="text-accent mr-5 mt-1 text-2xl">
+                                <i class="fas fa-clock"></i>
                             </div>
                             <div>
-                                <h3 class="font-display font-semibold text-lg mb-1">Hours</h3>
+                                <h3 class="font-display font-semibold text-xl mb-2">Hours</h3>
                                 <p class="text-gray-600">Monday - Sunday: 8:00 AM - 10:00 PM</p>
+                                <p class="text-gray-600 mt-1">Kitchen closes at 9:30 PM</p>
                             </div>
                         </div>
                         
-                        <div class="flex items-start bg-secondary/30 p-4 rounded-lg hover-zoom">
-                            <div class="text-accent mr-4 mt-1">
-                                <i class="fas fa-phone-alt text-xl"></i>
+                        <div class="flex items-start bg-light p-6 rounded-xl hover-zoom">
+                            <div class="text-accent mr-5 mt-1 text-2xl">
+                                <i class="fas fa-phone-alt"></i>
                             </div>
                             <div>
-                                <h3 class="font-display font-semibold text-lg mb-1">Contact</h3>
+                                <h3 class="font-display font-semibold text-xl mb-2">Contact</h3>
                                 <p class="text-gray-600">+91 22 1234 5678</p>
                                 <p class="text-gray-600">hello@kalaghoda.cafe</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start bg-secondary/30 p-4 rounded-lg hover-zoom">
-                            <div class="text-accent mr-4 mt-1">
-                                <i class="fas fa-hashtag text-xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-display font-semibold text-lg mb-1">Follow Us</h3>
-                                <div class="flex space-x-4">
-                                    <a href="#" class="text-primary hover:text-accent text-2xl transform hover:-translate-y-1 transition duration-300">
+                                <div class="flex space-x-4 mt-3">
+                                    <a href="#" class="text-primary hover:text-accent text-2xl">
                                         <i class="fab fa-instagram"></i>
                                     </a>
-                                    <a href="#" class="text-primary hover:text-accent text-2xl transform hover:-translate-y-1 transition duration-300">
+                                    <a href="#" class="text-primary hover:text-accent text-2xl">
                                         <i class="fab fa-facebook"></i>
                                     </a>
-                                    <a href="#" class="text-primary hover:text-accent text-2xl transform hover:-translate-y-1 transition duration-300">
+                                    <a href="#" class="text-primary hover:text-accent text-2xl">
                                         <i class="fab fa-twitter"></i>
                                     </a>
                                 </div>
@@ -601,26 +763,26 @@
                 </div>
                 
                 <div data-aos="fade-left">
-                    <h2 class="text-4xl font-display font-bold text-primary mb-6">Get In Touch</h2>
-                    <div class="w-24 h-1 bg-accent mb-8"></div>
+                    <h2 class="text-4xl md:text-5xl font-display font-bold text-primary mb-6">Get In Touch</h2>
+                    <div class="w-32 h-1 bg-accent mb-8"></div>
                     
                     <form class="space-y-6">
                         <div class="group">
                             <label for="name" class="block text-gray-700 mb-2 group-hover:text-accent transition duration-300">Name</label>
-                            <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent outline-none transition duration-300 group-hover:border-accent">
+                            <input type="text" id="name" class="w-full px-6 py-4 input-field rounded-xl focus:ring-2 focus:ring-accent outline-none transition duration-300">
                         </div>
                         
                         <div class="group">
                             <label for="email" class="block text-gray-700 mb-2 group-hover:text-accent transition duration-300">Email</label>
-                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent outline-none transition duration-300 group-hover:border-accent">
+                            <input type="email" id="email" class="w-full px-6 py-4 input-field rounded-xl focus:ring-2 focus:ring-accent outline-none transition duration-300">
                         </div>
                         
                         <div class="group">
                             <label for="message" class="block text-gray-700 mb-2 group-hover:text-accent transition duration-300">Message</label>
-                            <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent outline-none transition duration-300 group-hover:border-accent"></textarea>
+                            <textarea id="message" rows="5" class="w-full px-6 py-4 input-field rounded-xl focus:ring-2 focus:ring-accent outline-none transition duration-300"></textarea>
                         </div>
                         
-                        <button type="submit" class="bg-primary hover:bg-dark text-white px-8 py-3 rounded-full text-lg font-medium transition duration-300 btn-glow transform hover:-translate-y-1 w-full md:w-auto">
+                        <button type="submit" class="bg-accent hover:bg-primary text-white px-8 py-4 rounded-full text-lg font-medium transition duration-500 btn-glow transform hover:-translate-y-1 w-full md:w-auto">
                             Send Message
                         </button>
                     </form>
@@ -636,12 +798,12 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-12">
+    <footer class="bg-dark text-white py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-8">
+            <div class="grid md:grid-cols-4 gap-12">
                 <div data-aos="fade-up">
-                    <h3 class="font-display text-xl font-bold mb-4">Kala Ghoda Café</h3>
-                    <p class="text-secondary mb-4">Artisanal coffee and café in the heart of Mumbai's art district.</p>
+                    <h3 class="font-display text-2xl font-bold mb-6">Kala Ghoda Café</h3>
+                    <p class="text-secondary mb-6 leading-relaxed">Mumbai's premier specialty coffee house and creative community space since 2012.</p>
                     <div class="flex space-x-4">
                         <a href="#" class="text-secondary hover:text-white text-xl transform hover:-translate-y-1 transition duration-300">
                             <i class="fab fa-instagram"></i>
@@ -656,55 +818,59 @@
                 </div>
                 
                 <div data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="font-display text-xl font-bold mb-4">Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#home" class="text-secondary hover:text-white transition duration-300 hover:pl-2 block">Home</a></li>
-                        <li><a href="#menu" class="text-secondary hover:text-white transition duration-300 hover:pl-2 block">Menu</a></li>
-                        <li><a href="#about" class="text-secondary hover:text-white transition duration-300 hover:pl-2 block">About</a></li>
-                        <li><a href="#gallery" class="text-secondary hover:text-white transition duration-300 hover:pl-2 block">Gallery</a></li>
-                        <li><a href="#contact" class="text-secondary hover:text-white transition duration-300 hover:pl-2 block">Contact</a></li>
+                    <h3 class="font-display text-xl font-bold mb-6">Explore</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="footer-link text-secondary hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="#menu" class="footer-link text-secondary hover:text-white transition duration-300">Menu</a></li>
+                        <li><a href="#about" class="footer-link text-secondary hover:text-white transition duration-300">About</a></li>
+                        <li><a href="#gallery" class="footer-link text-secondary hover:text-white transition duration-300">Gallery</a></li>
+                        <li><a href="#contact" class="footer-link text-secondary hover:text-white transition duration-300">Contact</a></li>
                     </ul>
                 </div>
                 
                 <div data-aos="fade-up" data-aos-delay="200">
-                    <h3 class="font-display text-xl font-bold mb-4">Contact</h3>
-                    <ul class="space-y-2 text-secondary">
+                    <h3 class="font-display text-xl font-bold mb-6">Visit</h3>
+                    <ul class="space-y-3 text-secondary">
                         <li class="flex items-start hover:text-white transition duration-300">
-                            <i class="fas fa-map-marker-alt mt-1 mr-2"></i>
+                            <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
                             <span>10, Ropewalk Lane, Kala Ghoda, Mumbai</span>
                         </li>
                         <li class="flex items-start hover:text-white transition duration-300">
-                            <i class="fas fa-phone-alt mt-1 mr-2"></i>
+                            <i class="fas fa-phone-alt mt-1 mr-3"></i>
                             <span>+91 22 1234 5678</span>
                         </li>
                         <li class="flex items-start hover:text-white transition duration-300">
-                            <i class="fas fa-envelope mt-1 mr-2"></i>
+                            <i class="fas fa-envelope mt-1 mr-3"></i>
                             <span>hello@kalaghoda.cafe</span>
+                        </li>
+                        <li class="flex items-start hover:text-white transition duration-300">
+                            <i class="fas fa-clock mt-1 mr-3"></i>
+                            <span>Daily: 8AM - 10PM</span>
                         </li>
                     </ul>
                 </div>
                 
                 <div data-aos="fade-up" data-aos-delay="300">
-                    <h3 class="font-display text-xl font-bold mb-4">Order Online</h3>
+                    <h3 class="font-display text-xl font-bold mb-6">Connect</h3>
                     <div class="space-y-4">
-                        <a href="https://www.zomato.com/mumbai/kala-ghoda-cafe-fort/order" target="_blank" class="inline-block bg-primary hover:bg-accent text-white px-6 py-2 rounded-full transition duration-300 btn-glow transform hover:-translate-y-1">
-                            Order via Zomato
+                        <a href="https://www.zomato.com/mumbai/kala-ghoda-cafe-fort/order" target="_blank" class="inline-flex items-center bg-accent hover:bg-primary text-white px-6 py-3 rounded-full transition duration-500 btn-glow">
+                            <i class="fab fa-zomato mr-2"></i> Order via Zomato
                         </a>
-                        <a href="#" class="inline-block border border-secondary hover:bg-secondary/10 text-white px-6 py-2 rounded-full transition duration-300 transform hover:-translate-y-1">
-                            Reserve a Table
+                        <a href="#" class="inline-flex items-center border border-secondary hover:bg-secondary/10 text-white px-6 py-3 rounded-full transition duration-300">
+                            <i class="fas fa-calendar-alt mr-2"></i> Reserve a Table
                         </a>
                     </div>
                 </div>
             </div>
             
-            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-secondary" data-aos="fade-up">
+            <div class="border-t border-gray-700 mt-16 pt-8 text-center text-secondary" data-aos="fade-up">
                 <p>&copy; 2023 Kala Ghoda Café. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <!-- Back to Top -->
-    <a href="#home" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-dark transition duration-300 z-50 btn-glow" id="back-to-top">
+    <a href="#home" class="fixed bottom-8 right-8 bg-accent text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl hover:bg-primary transition duration-500 z-50 btn-glow transform hover:-translate-y-1" id="back-to-top">
         <i class="fas fa-arrow-up"></i>
     </a>
 
@@ -712,7 +878,8 @@
         // Initialize AOS animations
         AOS.init({
             duration: 800,
-            once: false
+            once: false,
+            easing: 'ease-in-out-cubic'
         });
         
         // Mobile menu toggle
@@ -721,6 +888,9 @@
         
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
+            mobileMenuButton.innerHTML = mobileMenu.classList.contains('hidden') ? 
+                '<i class="fas fa-bars text-2xl"></i>' : 
+                '<i class="fas fa-times text-2xl"></i>';
         });
         
         // Close mobile menu when clicking on a link
@@ -728,6 +898,7 @@
         mobileMenuLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
+                mobileMenuButton.innerHTML = '<i class="fas fa-bars text-2xl"></i>';
             });
         });
         
@@ -736,11 +907,11 @@
         
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 300) {
-                backToTopButton.classList.add('opacity-100', 'visible');
                 backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
             } else {
-                backToTopButton.classList.add('opacity-0', 'invisible');
                 backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
             }
         });
         
@@ -763,24 +934,6 @@
                 steam.style.animation = `steam-${i+1} ${4 + Math.random() * 2}s ease-out ${i * 0.5}s infinite`;
                 coffeeSteam.appendChild(steam);
             }
-            
-            // Add keyframes dynamically
-            const style = document.createElement('style');
-            style.innerHTML = `
-                @keyframes steam-one {
-                    0% { transform: translateY(0) translateX(0) scale(0.25); opacity: 0.2; }
-                    100% { transform: translateY(-200px) translateX(-20px) scale(1); opacity: 0; }
-                }
-                @keyframes steam-two {
-                    0% { transform: translateY(0) translateX(0) scale(0.25); opacity: 0.2; }
-                    100% { transform: translateY(-200px) translateX(0) scale(1); opacity: 0; }
-                }
-                @keyframes steam-three {
-                    0% { transform: translateY(0) translateX(0) scale(0.25); opacity: 0.2; }
-                    100% { transform: translateY(-200px) translateX(20px) scale(1); opacity: 0; }
-                }
-            `;
-            document.head.appendChild(style);
         }
     </script>
 </body>
